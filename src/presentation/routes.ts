@@ -6,7 +6,7 @@ export class AppRoutes {
 
         const router = Router()
 
-        router.use('/', TodoRoutes.routes)
+        router.use('/api/v1/todos', TodoRoutes.routes)
 
         return router
     }
