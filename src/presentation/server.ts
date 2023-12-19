@@ -25,6 +25,16 @@ export class Server {
         // Public folder
         this.app.use(express.static(this.publicPath))
 
+        // Routes
+        this.app.get('/api/v1/todos', (req, res) => {
+            res.status(200).json([
+                { id: 1, text: 'study node', created_at: new Date() },
+                { id: 2, text: 'design B&B', created_at: new Date() },
+                { id: 3, text: 'migrate Clarios', created_at: new Date() },
+            ])
+        })
+
+        // * SPA
         this.app.get('*', (req, res) => {
             console.log(req.url)
 
