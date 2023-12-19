@@ -1,0 +1,25 @@
+# npm
+node_modules/
+package-lock.json
+
+# dist
+.DS_Store
+dist/
+
+# enviroment
+logs/
+.env
+
+# database
+mongo/
+mongo-test/
+!src/data/mongo
+postgres/
+postgres-test/
+
+# test
+.env.test
+coverage/
+
+# self certificate
+key/
