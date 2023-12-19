@@ -1,10 +1,16 @@
 import { Request, Response } from "express"
 
-const todos = [
-    { id: 1, text: 'study node', created_at: new Date() },
-    { id: 2, text: 'design B&B', created_at: new Date() },
-    { id: 3, text: 'fix libro de reclamaciones', created_at: new Date() },
-    { id: 4, text: 'migrate Clarios', created_at: new Date() },
+interface Todo {
+    id: number
+    text: string
+    completedAt: Date | null
+}
+
+const todos: Todo[] = [
+    { id: 1, text: 'study node', completedAt: new Date() },
+    { id: 2, text: 'design B&B', completedAt: new Date() },
+    { id: 3, text: 'fix libro de reclamaciones', completedAt: new Date() },
+    { id: 4, text: 'migrate Clarios', completedAt: new Date() },
 ]
 
 export class TodosController {
@@ -37,12 +43,30 @@ export class TodosController {
         const newTodo = {
             id: todos.length + 1,
             text: text,
-            created_at: new Date()
+            completedAt: new Date()
         }
 
         todos.push(newTodo)
 
         res.json(newTodo)
+    }
+
+    public updateTodo = (req: Request, res: Response) => {
+
+        const id = +req.params.id
+        if (isNaN(id)) return res.status(400).json({ error: 'ID argument is not a number' })
+
+        const todo = todos.find(todo => todo.id === id)
+        if (!todo) return res.status(404).json({ error: `TODO with id ${id} not found` })
+
+        const { text, completedAt } = req.body
+
+        todo.text = text || todo.text
+        completedAt === null
+            ? todo.completedAt = null
+            : todo.completedAt = new Date(completedAt || todo.completedAt)
+
+        res.json(todo)
     }
 
 }
