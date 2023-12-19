@@ -4,7 +4,7 @@
 
 Este es un repositorio personal para ejecución de los proyectos del cursos **NodeJS: De cero a experto** de **Fernando Herrera** en Udemy. Para acceder al curso completo puede hacer [clic aquí](https://www.udemy.com/course/node-de-cero-a-experto/)
 
-El proyecto desarrollado a continuación es un web server implementado con Express sirviendo una SPA en React. En el proceso se exploran fundamentos de Arquitectura Limpias entre otros conceptos más de arquitectura de software.
+El proyecto desarrollado a continuación es un REST server implementado con Express sirviendo una SPA en React. En el proceso se exploran fundamentos de Arquitectura Limpias entre otros conceptos más de arquitectura de software.
 
 ## Requerimientos
 
