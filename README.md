@@ -10,6 +10,7 @@ El proyecto desarrollado a continuación es un REST server implementado con Expr
 
 - Node 20.9.0 LTS
 - Express 4.18.2
+- Docker 24.0.5
 
 ## Instalación del proyecto
 
@@ -33,7 +34,21 @@ PORT=3000
 PUBLIC_PATH=public
 ```
 
-3. Correr el proyecto usando alguno de los siguientes scripts según el entorno
+3. Levantar las bases de datos
+
+```
+docker compose up -d
+
+```
+
+4. Generar las migraciones de Prisma a la base de dato de Postgres
+
+```
+npx prisma migrate dev
+
+```
+
+5. Correr el proyecto usando alguno de los siguientes scripts según el entorno
 
 Ejecutar entorno de desarrollo
 
