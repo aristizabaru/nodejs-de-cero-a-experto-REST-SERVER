@@ -16,6 +16,7 @@ mongo-test/
 !src/data/mongo
 postgres/
 postgres-test/
+!src/data/postgres
 
 # test
 .env.test
