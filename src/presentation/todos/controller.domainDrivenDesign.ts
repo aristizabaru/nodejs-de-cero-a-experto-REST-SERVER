@@ -35,7 +35,7 @@ export class TodosController {
         if (error) return res.status(400).json({ error })
 
         const todo = await this.todoRepository.create(createTodoDto!)
-        res.json(todo)
+        res.status(201).json(todo)
     }
 
     public updateTodo = async (req: Request, res: Response) => {
